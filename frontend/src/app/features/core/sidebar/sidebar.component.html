@@ -1,1 +1,91 @@
-<p>sidebar works!</p>
+<aside class="fixed min-h-screen w-64 bg-base-200 shadow-lg overflow-y-auto flex flex-col">
+  <!-- Encabezado -->
+  <header class="flex justify-center items-center p-4 bg-base-100 shadow-md">
+    <a routerLink="/home">
+      <img
+        src="https://s3-alpha-sig.figma.com/img/b468/47e0/7a4d76d5e5326e185b1fbbece43de662?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BFAItHaCmYWHtLEz0mfwmzeEQwvn4ex-T6Gs2kmfHroLZOR0L~KCuMLrp9hHO~~NYhdpmnVg3krlxNckd-5Yd2ZQqYY96ubLGQ4ll5rVuFqgNHkYgkNtqEpJCbWDtsb6bBCC2-5vHR~KfPAEun8UayaCRAO9c04Afwp0vJ1jvklKmdqyMxmt7ZJysrBzxz2gWGIx29oSYf5CB5xxsmWzds5ACc5fE~JDTUn9~Pbs3n-MMdg7QMwcZmshSHWPTBITVytLHddmsxK9p~-LpcwArf3qcqLfUQK925mP7DE4aArsrF0EXse50tf5xMX0c-uqfCvGP0kn7k6NnyA3xBYD2w__"
+        alt="Logo"
+        class="w-24"
+      />
+    </a>
+  </header>
+
+  <!-- Menú principal -->
+  <nav class="flex-grow p-4 flex flex-col gap-2">
+    <!-- Opción Inventario -->
+    <section>
+      <div class="flex items-center gap-2 cursor-pointer" (click)="toggleInventory()">
+        <svg width="18" height="14" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9 3h7a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h5l2 2Zm7 10V4H8L6 2H2v11h14Z"
+            fill="#0B0A0B"
+            stroke="#0B0A0B"
+            stroke-width=".1"
+          />
+        </svg>
+        <span>Inventario</span>
+        <!-- SVG flecha -->
+        <div class="transition-transform duration-300 ml-auto" [ngClass]="{ 'rotate-180': inventoryOpen }">
+          <svg width="11" height="6" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="m1 5 4-4 4 4"
+              stroke="#0B0A0B"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
+
+      <!-- Submenú -->
+      <div *ngIf="inventoryOpen" class="ml-6 mt-2 flex flex-col gap-1">
+        <a
+          routerLink="/inventoy"
+          routerLinkActive="active-link"
+          class="px-2 py-1 rounded-md hover:bg-gray-300"
+        >
+          Mi inventario
+        </a>
+        <a
+          routerLink="/addProduct"
+          routerLinkActive="active-link"
+          class="px-2 py-1 rounded-md hover:bg-gray-300"
+        >
+          Añadir producto
+        </a>
+      </div>
+    </section>
+
+    <!-- Opción Catálogo Web -->
+    <a
+      routerLink="/catalogo-web"
+      class="btn btn-ghost flex items-center justify-start gap-2 w-full text-left"
+    >
+      <svg
+        width="18"
+        height="16"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M17 6V5l-1-4a1 1 0 0 0-1 0H3a1 1 0 0 0-1 0L1 5v2a3 3 0 0 0 1 2v5a1 1 0 0 0 1 2h12a1 1 0 0 0 1-2V9a3 3 0 0 0 1-2V6ZM3 2h12l1 3H2l1-3Zm4 4h4v1a2 2 0 1 1-4 0V6ZM6 6v1a2 2 0 0 1-4 0V6h4Zm9 8H3v-4a3 3 0 0 0 2 0l2-1a3 3 0 0 0 5 0 3 3 0 0 0 3 1v4Zm-1-5a2 2 0 0 1-2-2V6h4v1a2 2 0 0 1-2 2Z"
+          fill="#0B0A0B"
+        />
+      </svg>
+      <span>Catálogo Web</span>
+    </a>
+  </nav>
+
+  <hr class="my-4" />
+
+  <!-- Botón Cerrar Sesión -->
+  <footer class="p-4">
+    <button
+      class="btn btn-error w-full flex items-center gap-2"
+      (click)="logOut()"
+    >
+      <span>Cerrar Sesión</span>
+    </button>
+  </footer>
+</aside>

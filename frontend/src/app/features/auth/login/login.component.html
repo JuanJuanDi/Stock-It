@@ -3,30 +3,32 @@
 >
   <!-- Contenedor del formulario -->
   <section
-    class="w-full max-w-[100%] md:max-w-[534px] p-4 md:p-6 rounded-xl border border-transparent bg-[#FEFEFF] shadow-md mb-4"
+    class="w-full max-w-[100%] md:max-w-[534px] p-4 md:p-6 rounded-xl bg-white shadow-md mb-4"
   >
     <!-- Logo -->
     <header
-      class="flex items-center justify-center w-full h-[100px] mb-4 md:mb-6"
+      class="flex items-center justify-center w-full h-[100px] mb-4"
     >
       <figure class="w-[200px] h-[67.38px]">
         <img
-          src="/frontend/src/assets/Stockit-logo.svg"
+          src="https://s3-alpha-sig.figma.com/img/b468/47e0/7a4d76d5e5326e185b1fbbece43de662?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BFAItHaCmYWHtLEz0mfwmzeEQwvn4ex-T6Gs2kmfHroLZOR0L~KCuMLrp9hHO~~NYhdpmnVg3krlxNckd-5Yd2ZQqYY96ubLGQ4ll5rVuFqgNHkYgkNtqEpJCbWDtsb6bBCC2-5vHR~KfPAEun8UayaCRAO9c04Afwp0vJ1jvklKmdqyMxmt7ZJysrBzxz2gWGIx29oSYf5CB5xxsmWzds5ACc5fE~JDTUn9~Pbs3n-MMdg7QMwcZmshSHWPTBITVytLHddmsxK9p~-LpcwArf3qcqLfUQK925mP7DE4aArsrF0EXse50tf5xMX0c-uqfCvGP0kn7k6NnyA3xBYD2w__"
           alt="Logo de StockIt"
-          class="w-full h-full object-contain"
-        />
+          class="w-full h-full object-contain"/>
       </figure>
     </header>
 
     <!-- Título del formulario -->
-    <h1 class="text-2xl font-semibold mb-4 md:mb-6 text-center text-gray-800">
-      Iniciar sesión
-    </h1>
+    <h2 class="text-2xl font-bold text-center text-gray-900">
+      ¡Bienvenido de nuevo!
+    </h2>
+    <p class="text-center text-sm text-gray-500 mb-6">
+      Accede para gestionar tu inventario
+    </p>
 
     <!-- Formulario -->
     <form>
       <!-- Agrupar campos de formulario con fieldset -->
-      <fieldset class="w-full h-auto flex flex-col justify-between mb-4">
+      <fieldset class="w-full h-auto flex flex-col justify-between mb-4 text-black ">
         <legend class="sr-only">Formulario de inicio de sesión</legend>
 
         <!-- Campo de correo -->
@@ -41,7 +43,7 @@
             placeholder="StockIt@gmail.com"
             [(ngModel)]="email"
             required
-            class="w-full h-[48px] bg-[#F8F9F8] border border-[#E0E9ED] rounded focus:outline-none px-3"
+            class="input input-bordered w-full h-[48px] bg-[#F8F9F8] border-[#E0E9ED] focus:outline-none"
             (input)="validateEmail()"
           />
           <span *ngIf="emailError" class="text-red-500 text-sm">{{
@@ -59,7 +61,7 @@
             placeholder="*******"
             [(ngModel)]="password"
             required
-            class="w-full h-[48px] bg-[#F8F9F8] border border-[#E0E9ED] rounded focus:outline-none px-3"
+            class="input input-bordered w-full h-[48px] bg-[#F8F9F8] border-[#E0E9ED] focus:outline-none"
             (input)="validatePassword()"
           />
           <span *ngIf="passwordError" class="text-red-500 text-sm">{{
@@ -71,7 +73,7 @@
       <!-- Botón de Ingresar -->
       <div class="w-full h-[48px] mt-4">
         <button
-          class="w-full h-full rounded text-black text-sm font-semibold bg-[#34D399] hover:bg-[#4CAF50] transition duration-150"
+          class="btn btn-success w-full text-sm font-semibold disabled:opacity-50 disabled:bg-[#4CAF50] disabled:cursor-not-allowed"
           [disabled]="!email || !password || emailError || passwordError"
         >
           Ingresar
@@ -82,13 +84,14 @@
 
     <!-- Enlace a Registro -->
     <footer>
-      <p class="text-center mt-4 text-sm text-gray-600">
+      <p class="text-center mt-4 text-sm text-black">
         ¿No tienes cuenta?
         <a
-          routerLink="/registrar"
-          class="text-[#34D399] font-semibold hover:underline"
-          >Regístrate aquí</a
+          routerLink="/register"
+          class="text-[#4CAF50] font-semibold hover:underline"
         >
+          Regístrate aquí
+        </a>
       </p>
     </footer>
   </section>

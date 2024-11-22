@@ -1,1 +1,126 @@
-<p>register works!</p>
+<div
+  class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[90%] md:max-w-[650px] flex flex-col items-center p-4 md:p-0"
+>
+  <!-- Contenedor del formulario -->
+  <section
+    class="card w-full max-w-[100%] md:max-w-[534px] bg-white shadow-lg border border-gray-200 rounded-lg p-6"
+  >
+    <!-- Encabezado con logo -->
+    <header class="flex flex-col items-center justify-center mb-6">
+      <figure class="w-[200px] h-[67px]">
+        <img
+          src="https://s3-alpha-sig.figma.com/img/b468/47e0/7a4d76d5e5326e185b1fbbece43de662?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BFAItHaCmYWHtLEz0mfwmzeEQwvn4ex-T6Gs2kmfHroLZOR0L~KCuMLrp9hHO~~NYhdpmnVg3krlxNckd-5Yd2ZQqYY96ubLGQ4ll5rVuFqgNHkYgkNtqEpJCbWDtsb6bBCC2-5vHR~KfPAEun8UayaCRAO9c04Afwp0vJ1jvklKmdqyMxmt7ZJysrBzxz2gWGIx29oSYf5CB5xxsmWzds5ACc5fE~JDTUn9~Pbs3n-MMdg7QMwcZmshSHWPTBITVytLHddmsxK9p~-LpcwArf3qcqLfUQK925mP7DE4aArsrF0EXse50tf5xMX0c-uqfCvGP0kn7k6NnyA3xBYD2w__"
+          alt="Logo"
+          class="w-full h-full object-contain"
+        />
+      </figure>
+
+    </header>
+    <!-- Título del formulario -->
+    <h2 class="text-2xl font-bold text-center text-gray-900">
+      ¡Bienvenido por primera vez!
+    </h2>
+    <p class="text-center text-sm text-gray-500 mb-6">
+      Regístrate y lleva tu gestión al siguiente nivel    </p>
+    <!-- Formulario -->
+    <form>
+      <!-- Agrupar campos -->
+      <fieldset class="form-control w-full mb-4 ">
+        <label for="email" class="label">
+          <span class="label-text font-semibold  ">Correo electrónico</span>
+        </label>
+        <input
+          id="email"
+          type="email"
+          name="email"
+          placeholder="correo@ejemplo.com"
+          [(ngModel)]="email"
+          class="input input-bordered w-full bg-[#F8F9F8]"
+          required
+          (input)="validateEmail()"
+        />
+        <span *ngIf="emailError" class="text-error text-sm">{{ emailError }}</span>
+      </fieldset>
+
+      <fieldset class="form-control w-full mb-4">
+        <label for="phone" class="label">
+          <span class="label-text font-semibold ">Teléfono</span>
+        </label>
+        <input
+          id="phone"
+          type="tel"
+          name="phone"
+          placeholder="Teléfono"
+          [(ngModel)]="phone"
+          class="input input-bordered w-full bg-[#F8F9F8]"
+          required
+          (input)="validatePhone()"
+        />
+        <span *ngIf="phoneError" class="text-error text-sm">{{ phoneError }}</span>
+      </fieldset>
+
+      <fieldset class="form-control w-full mb-4">
+        <label for="username" class="label">
+          <span class="label-text font-semibold ">Nombre de usuario</span>
+        </label>
+        <input
+          id="username"
+          type="text"
+          name="username"
+          placeholder="Nombre de usuario"
+          [(ngModel)]="username"
+          class="input input-bordered w-full bg-[#F8F9F8]"
+          required
+        />
+      </fieldset>
+
+      <fieldset class="form-control w-full mb-4">
+        <label for="password" class="label">
+          <span class="label-text font-semibold ">Contraseña</span>
+        </label>
+        <input
+          id="password"
+          type="password"
+          name="password"
+          placeholder="*******"
+          [(ngModel)]="password"
+          class="input input-bordered w-full bg-[#F8F9F8]"
+          required
+          (input)="validatePassword()"
+        />
+        <span *ngIf="passwordError" class="text-error text-sm">{{ passwordError }}</span>
+      </fieldset>
+
+      <!-- Botón de registro -->
+      <div class="w-full">
+        <button
+          class="btn btn-success w-full disabled:opacity-50 disabled:bg-success/60 disabled:cursor-not-allowed"
+          (click)="onSignUp()"
+          [disabled]="
+            !username ||
+            !email ||
+            !phone ||
+            !password ||
+            emailError ||
+            phoneError ||
+            passwordError
+          "
+        >
+          Registrarse
+        </button>
+      </div>
+    </form>
+
+    <!-- Enlace de inicio de sesión -->
+    <footer class="mt-4 text-black">
+      <p class="text-sm text-center">
+        ¿Ya tienes una cuenta?
+        <a
+          routerLink="/login"
+          class="link link-primary text-[#4CAF50]"
+          >Inicia sesión aquí</a
+        >
+      </p>
+    </footer>
+  </section>
+</div>

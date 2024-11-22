@@ -1,1 +1,69 @@
-<p>homepage works!</p>
+<!-- Contenedor principal de la landing page -->
+<div class="max-w-screen-lg min-h-screen mx-auto px-4">
+  <!-- Contenedor para centrar el header dentro de la misma anchura -->
+  <div class="fixed top-0 left-1/2 transform -translate-x-1/2 z-10 w-full max-w-screen-lg px-4">
+    <!-- Header -->
+    <header class="flex items-center justify-between h-16 bg-white shadow-lg px-4">
+      <div>
+        <img src="https://s3-alpha-sig.figma.com/img/b468/47e0/7a4d76d5e5326e185b1fbbece43de662?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=BFAItHaCmYWHtLEz0mfwmzeEQwvn4ex-T6Gs2kmfHroLZOR0L~KCuMLrp9hHO~~NYhdpmnVg3krlxNckd-5Yd2ZQqYY96ubLGQ4ll5rVuFqgNHkYgkNtqEpJCbWDtsb6bBCC2-5vHR~KfPAEun8UayaCRAO9c04Afwp0vJ1jvklKmdqyMxmt7ZJysrBzxz2gWGIx29oSYf5CB5xxsmWzds5ACc5fE~JDTUn9~Pbs3n-MMdg7QMwcZmshSHWPTBITVytLHddmsxK9p~-LpcwArf3qcqLfUQK925mP7DE4aArsrF0EXse50tf5xMX0c-uqfCvGP0kn7k6NnyA3xBYD2w__" 
+          alt="Logo" class="w-28 h-auto" />
+      </div>
+      <div>
+        <button class="btn text-black" [routerLink]="'/welcome'">
+          <span>Iniciar sesión</span>
+        </button>
+      </div>
+      
+      
+
+    </header>
+  </div>
+
+  <!-- Banner -->
+  <div class="w-full h-auto mt-16">
+    <div class="relative w-full h-[384px] rounded-lg bg-gray-200 overflow-hidden">
+      <img src="https://s3-alpha-sig.figma.com/img/b1a0/ea44/273bbbd124e94768a8ec950b8000a35b?Expires=1733097600&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4&Signature=nEhEHPZOQ3fZS98h~VRcQviTbXBDi~NYxskSzsvNp-iagEkqc1rfbpVHH1bE-hkdQFtKFXIRUrSB-sojdRtXX2-Ka1tueSF6QatlXCJZySAXCnKuQPdA4JbpBM0APimE4heEQEf-wartsYbI44RUlrstQdtpfjapH4GYtsHSGn0dXKekm93gCtst2VDBGd-GU-JSafr~UIU61vzVxM22EVpNb~Z7izZbJQfyNIc1WI6lZq8HuscNuvNyre-sGF0pQfw5TpndINEQqjTKLrfhpw7ymquAZI5EovNnFlKQQm~hnPYKydSXtFj8cu23O9v0ClIbMsXVqf1gkLqiqyzGYA__"
+        alt="Background Image" class="absolute inset-0 object-cover w-full h-full" />
+      <div class="absolute inset-0 bg-black bg-opacity-50"></div>
+
+      <!-- Contenedor del texto y botón centrado -->
+      <div class="absolute inset-0 flex flex-col justify-center items-center space-y-4 text-center">
+        <h1 class="text-white font-bold text-4xl md:text-5xl leading-tight">Tienda Singularity</h1>
+        <button class="btn btn-success" routerLink="/inventory">Ver productos</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nuevo contenedor debajo del espacio -->
+  <div class="w-full py-8" id="espacioProductos">
+    <!-- Texto "Productos" -->
+    <h2 class="text-3xl font-bold text-gray-900">Productos</h2>
+
+    <!-- Contenedor para las tarjetas de producto -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
+      @for (productos of dataProductos; track $index) {
+      <div class="card bg-white shadow-xl border border-gray-200">
+        <figure class="h-56 overflow-hidden">
+          <img [src]="urlImagen + productos.urlImagen" alt="Imagen de {{ productos.producto }}" class="w-full h-full object-cover" />
+        </figure>
+        <div class="card-body">
+          <span class="badge badge-success mb-2">Disponible</span>
+          <h3 class="card-title">{{ productos.producto }}</h3>
+          <p class="text-sm text-gray-600">{{ productos.descripcion }}</p>
+          <div class="mt-4 flex justify-between items-center">
+            <button class="btn text-black" (click)="btnWasa()">
+              <!-- SVG inline -->
+              <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" class="w-4 h-4 mr-2">
+                <path d="m68 222 4 2A112 112 0 0 0 207 49a111 111 0 0 0-190 79c0 21 7 42 17 59l3 4-11 41 42-10Z" fill="#00E676"/>
+                <path d="M219 38A127 127 0 0 0 18 192L0 258l68-17A128 128 0 0 0 219 38Zm-90 196c-19 0-38-5-54-14l-4-2-40 10 10-40-3-4C8 135 22 69 73 38c50-30 115-16 145 35a105 105 0 0 1-89 161Zm61-77-7-4-18-8-2-1c-3 0-4 1-5 2l-11 12-3 2h-1l-3-2-3-1c-8-4-15-8-21-13l-4-4-14-17v-2l-2-2 1-4 5-5 3-5c2-2 2-5 2-7L96 71c-2-2-3-3-5-3H79l-1 1-4 3-4 4a36 36 0 0 0-4 38l1 2c6 13 15 25 26 35l3 3 5 6c15 12 32 21 50 26l7 2h7c4 0 8-2 11-3l5-3 1-1 4-4 4-4 3-10v-5l-3-1Z" fill="#FFF"/>
+              </svg>
+              Comprar
+            </button>
+          </div>
+        </div>
+        
+      </div>
+      }
+    </div>
+  </div>
+</div>
