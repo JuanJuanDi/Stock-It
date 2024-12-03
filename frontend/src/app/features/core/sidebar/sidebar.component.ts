@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Router, RouterLink } from '@angular/router';
 
 @Component({
@@ -10,17 +10,31 @@ import { Router, RouterLink } from '@angular/router';
   styleUrls: ['./sidebar.component.css'],
 })
 export class SidebarComponent {
-  inventoryOpen = false;
+  // Estado para el subinventario
+  isSubInventoryOpen = false;
 
   constructor(private router: Router) {}
 
-  // Alternar submenú de inventario
-  toggleInventory() {
-    this.inventoryOpen = !this.inventoryOpen;
+  // Alternar visibilidad del subinventario
+  toggleSubInventory(): void {
+    this.isSubInventoryOpen = !this.isSubInventoryOpen;
   }
 
-  // Cerrar sesión
-  logOut() {
+  // Cerrar el subinventario (público para ser reutilizado)
+  public closeSubInventory(): void {
+    this.isSubInventoryOpen = false;
+  }
+
+  // Escuchar la tecla Esc para cerrar el subinventario si está abierto
+  @HostListener('document:keydown.escape', ['$event'])
+  handleEscapeKey(event: KeyboardEvent): void {
+    if (this.isSubInventoryOpen) {
+      this.closeSubInventory();
+    }
+  }
+
+  // Navegar y cerrar sesión
+  public logOut(): void {
     sessionStorage.clear();
     this.router.navigate(['/login']);
   }

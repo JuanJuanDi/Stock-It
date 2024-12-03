@@ -1,5 +1,5 @@
 import { Routes } from '@angular/router';
-import { HomepageComponent } from './features/homepage/homepage.component';
+import { HomepageComponent } from '@/features/homepage/homepage.component';
 import { LoginComponent } from './features/auth/login/login.component';
 import { InventoryComponent } from './features/stock/inventory/inventory.component';
 import { AddProductComponent } from './features/stock/add-product/add-product.component';
@@ -9,7 +9,7 @@ import { WelcomepageComponent } from './features/auth/welcomepage/welcomepage.co
 import { RegisterComponentComponent } from './features/auth/register/register.component';
 
 export const routes: Routes = [
-  { path: '', component: HomepageComponent},
+  { path: '', component: WelcomepageComponent},
   { path: 'homepage', component: HomepageComponent},
   { path: 'welcome', component: WelcomepageComponent},
   { path: 'login', component: LoginComponent},
@@ -18,5 +18,5 @@ export const routes: Routes = [
   { path: 'addProduct', component: AddProductComponent},
   { path: 'header', component: HeaderComponent},
   { path: 'sidebar', component: SidebarComponent },
-  { path: '**', redirectTo: '' },
+  { path: '**', redirectTo: 'homepage' },
 ];

@@ -1,5 +1,6 @@
 <main class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full max-w-[90%] md:max-w-[650px] h-auto flex flex-col items-center p-4 md:p-0">
-  <section   >
+  <section
+  class="w-full max-w-[100%] bg-[#E0E9ED] md:max-w-[534px] p-4 md:p-6 rounded-xl  shadow-[0_80px_25px_rgba(0,0,0,0.2)] mb-4">
     <header>
       <h2 class="text-4xl font-bold text-center text-gray-900">
         Bienvenido
@@ -31,11 +32,8 @@
 
 <div class="mt-4">
   <button
-    class="btn btn-outline w-full text-sm font-semibold border-gray-400 text-black 
-    hover:bg-gray-100
-    hover:border-gray-800 
-    disabled:opacity-15
-    disabled:cursor-not-allowed"
+  class="btn w-full text-sm font-semibold bg-white text-black 
+  hover:bg-gray-100 hover:text-black focus:outline-none focus:ring-2 focus:ring-gray-800"
     [routerLink]="['/register']" routerLinkActive="router-link-active" 
     >
     Regístrarme

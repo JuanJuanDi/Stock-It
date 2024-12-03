@@ -51,7 +51,7 @@
           <h3 class="card-title">{{ productos.producto }}</h3>
           <p class="text-sm text-gray-600">{{ productos.descripcion }}</p>
           <div class="mt-4 flex justify-between items-center">
-            <button class="btn text-black" (click)="btnWasa()">
+            <button class="btn text-black" [attr.href]="'https://wa.link/xlvzbd' + productos.producto" target="_blank">
               <!-- SVG inline -->
               <svg width="16" height="16" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid" class="w-4 h-4 mr-2">
                 <path d="m68 222 4 2A112 112 0 0 0 207 49a111 111 0 0 0-190 79c0 21 7 42 17 59l3 4-11 41 42-10Z" fill="#00E676"/>
@@ -59,6 +59,7 @@
               </svg>
               Comprar
             </button>
+            
           </div>
         </div>
         

@@ -6,7 +6,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-add-product',
   standalone: true,
-  imports: [SidebarComponent, RouterLink],
+  imports: [SidebarComponent],
   templateUrl: './add-product.component.html',
   styleUrl: './add-product.component.css'
 })

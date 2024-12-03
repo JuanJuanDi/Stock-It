@@ -5,7 +5,7 @@ import { Router, RouterLink } from '@angular/router';
 @Component({
   selector: 'app-inventory',
   standalone: true,
-  imports: [SidebarComponent, RouterLink],
+  imports: [SidebarComponent],
   templateUrl: './inventory.component.html',
   styleUrl: './inventory.component.css'
 })
