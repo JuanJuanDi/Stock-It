@@ -1,1 +1,18 @@
-<p>header works!</p>
+<app-sidebar></app-sidebar>
+<header class="w-full h-[80px] bg-[#E0E9ED] fixed top-0 left-0 z-10 flex items-center justify-between px-4 md:px-6 lg:px-8">
+  <!-- Contenedor de Navegación (si es necesario agregar contenido aquí en el futuro) -->
+  <nav class="w-10 h-10 bg-[#FFFFFF] rounded-full border-[var(--borderswidthborder-4)] flex items-center justify-center">
+      <!-- Aquí puedes agregar contenido de navegación si es necesario -->
+  </nav>
+
+  <!-- Contenedor del SVG (perfil o icono) alineado a la derecha -->
+  <div class="flex items-center justify-end space-x-4">
+    <div class="w-[40px] h-[40px] bg-[#FFFFFF] rounded-full border-[var(--borderswidthborder-4)] flex items-center justify-center overflow-hidden">
+        <div class="w-full h-full flex items-center justify-center bg-[#E0E9ED] rounded-full">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="w-[20px] h-[20px]" stroke="#000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 21a7 7 0 1 1 14 0M16 7a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z"/>
+            </svg>
+        </div>
+    </div>
+  </div>
+</header>
